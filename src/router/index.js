@@ -8,7 +8,6 @@ const routes = [
     path: "/",
     component: () => import("@/views/Content")
   },
-
   {
     path: "/*",
     redirect: "/"
