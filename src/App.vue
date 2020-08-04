@@ -1,5 +1,3 @@
 <template>
-  <zg-app>
-    <router-view />
-  </zg-app>
+  <router-view />
 </template>

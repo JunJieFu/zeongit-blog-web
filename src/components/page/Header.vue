@@ -16,7 +16,7 @@
       v-show="$vuetify.breakpoint.mdAndUp"
       style="line-height: 1.5em"
     >
-      ZeonGit
+      Zeongit
       <span class="font-weight-light ml-1">空间</span>
     </router-link>
     <v-spacer />
