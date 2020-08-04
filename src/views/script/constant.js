@@ -12,3 +12,17 @@ export const TECHNOLOGY_LIST = [
     "TypeScript是一种由微软开发的开源、跨平台的编程语言。它是JavaScript的超集，最终会被编译为JavaScript代码。TypeScript添加了可选的静态类型系统、很多尚未正式发布的ECMAScript新特性（如装饰器 [1]  ）。2012年10月，微软发布了首个公开版本的TypeScript，2013年6月19日，在经历了一个预览版之后微软正式发布了正式版TypeScript。"
   )
 ]
+
+export const LIVE_LIST = [
+  new Technology(
+    require("@/assets/image/github.svg"),
+    "Github",
+    "时而撸撸代码"
+  ),
+  new Technology(
+    require("@/assets/image/bilibili.svg"),
+    "Bilibili",
+    "时而看看节目"
+  ),
+  new Technology(require("@/assets/image/steam.svg"), "Steam", "时而玩玩游戏")
+]

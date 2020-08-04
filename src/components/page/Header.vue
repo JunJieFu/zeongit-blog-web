@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app clipped-left hide-on-scroll flat>
+  <v-app-bar app clipped-left elevate-on-scroll>
     <v-tooltip bottom :disabled="$isMobile">
       <template v-slot:activator="{ on }">
         <v-app-bar-nav-icon
@@ -12,7 +12,7 @@
     </v-tooltip>
     <router-link
       to="/"
-      class="title ml-2"
+      class="title ml-2 d-md-block d-none text-no-wrap"
       v-show="$vuetify.breakpoint.mdAndUp"
       style="line-height: 1.5em"
     >
@@ -20,7 +20,12 @@
       <span class="font-weight-light ml-1">空间</span>
     </router-link>
     <v-spacer />
-    <v-divider class="header-divider"></v-divider>
+    <v-tabs v-model="activeTab" right show-arrows>
+      <v-tab v-for="item in tabs" :key="item">
+        {{ item }}
+      </v-tab>
+    </v-tabs>
+    <v-divider class="header-divider" />
   </v-app-bar>
 </template>
 
@@ -40,6 +45,12 @@ export default {
   },
   methods: {
     ...mapMutations("menu", ["MUpdateCollapse"])
+  },
+  data() {
+    return {
+      activeTab: "欢迎",
+      tabs: ["欢迎", "生活", "技术", "留言"]
+    }
   }
 }
 </script>
