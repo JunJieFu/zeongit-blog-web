@@ -16,8 +16,7 @@
       v-show="$vuetify.breakpoint.mdAndUp"
       style="line-height: 1.5em"
     >
-      Zeongit
-      <span class="font-weight-light ml-1">空间</span>
+      下雨的北纬23°
     </router-link>
     <v-spacer />
     <v-tabs :value="value" right show-arrows @change="changeTab">
