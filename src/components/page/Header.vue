@@ -20,9 +20,9 @@
       <span class="font-weight-light ml-1">空间</span>
     </router-link>
     <v-spacer />
-    <v-tabs v-model="activeTab" right show-arrows>
-      <v-tab v-for="item in tabs" :key="item">
-        {{ item }}
+    <v-tabs :value="value" right show-arrows @change="changeTab">
+      <v-tab v-for="item in HEADER_TAB_LIST" :key="item.value">
+        {{ item.label }}
       </v-tab>
     </v-tabs>
     <v-divider class="header-divider" />
@@ -31,7 +31,23 @@
 
 <script>
 import { mapMutations, mapState } from "vuex"
+import { HEADER_TAB_LIST } from "@/assets/script/constant"
 export default {
+  model: {
+    prop: "value",
+    event: "changeTab"
+  },
+  props: {
+    value: {
+      type: Number,
+      default: 0
+    }
+  },
+  data() {
+    return {
+      HEADER_TAB_LIST
+    }
+  },
   computed: {
     collapse: {
       get() {
@@ -44,12 +60,9 @@ export default {
     ...mapState("user", ["info"])
   },
   methods: {
-    ...mapMutations("menu", ["MUpdateCollapse"])
-  },
-  data() {
-    return {
-      activeTab: "欢迎",
-      tabs: ["欢迎", "生活", "技术", "留言"]
+    ...mapMutations("menu", ["MUpdateCollapse"]),
+    changeTab(e) {
+      this.$emit("change-tab", e)
     }
   }
 }

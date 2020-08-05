@@ -7,9 +7,16 @@ export class Technology {
 }
 
 export class Live {
-  constructor(image, title, text) {
+  constructor(image, title, component) {
     this.image = image
     this.title = title
-    this.text = text
+    this.component = component
+  }
+}
+
+export class Tab {
+  constructor(label, value) {
+    this.label = label
+    this.value = value
   }
 }

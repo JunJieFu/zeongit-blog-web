@@ -1,106 +1,58 @@
 <template>
   <zg-app>
-    <zg-header> </zg-header>
-    <v-main>
-      <v-container class="page mx-auto">
-        <v-row>
-          <v-col cols="12" md="6">
-            <v-img
-              src="@/assets/image/mac.svg"
-              width="60%"
-              class="mx-auto"
-            ></v-img>
-          </v-col>
-          <v-col
-            cols="12"
-            md="6"
-            class="d-flex flex-column justify-center px-12 align-center align-md-start"
-          >
-            <h2 class="text-h2">Hello</h2>
-            <h5 class="text-h5 ">我是一只默默耕耘的小码农</h5>
-          </v-col>
-        </v-row>
-      </v-container>
+    <zg-header v-model="tab" @change-tab="changeTab"> </zg-header>
+    <v-main v-scroll="onScroll">
+      <div ref="welcome">
+        <welcome></welcome>
+      </div>
       <v-divider class="d-md-none" />
-      <v-container class="page mx-auto">
-        <h1 class="d-flex flex-column text-center mt-12 mb-6">生活</h1>
-        <component
-          :is="$vuetify.breakpoint.smAndDown ? 'v-carousel' : 'v-row'"
-          hide-delimiter-background
-          light
-          height="auto"
-          :show-arrows="false"
-        >
-          <component
-            :is="$vuetify.breakpoint.smAndDown ? 'v-carousel-item' : 'v-col'"
-            v-for="(item, i) in LIVE_LIST"
-            :key="i"
-            cols="12"
-            md="4"
-          >
-            <div class="pb-12 pb-md-0">
-              <v-card :elevation="0">
-                <v-card-title class="justify-center">
-                  <div>
-                    <v-img
-                      :src="item.image"
-                      :aspect-ratio="1"
-                      width="60"
-                    ></v-img>
-                  </div>
-                  <span class="ml-5">
-                    {{ item.title }}
-                  </span>
-                </v-card-title>
-                <v-card-text class="text-center"> {{ item.text }}</v-card-text>
-                <v-card-actions class="justify-center">
-                  <v-btn text color="primary">Go 前往看看</v-btn>
-                </v-card-actions>
-              </v-card>
-            </div>
-          </component>
-        </component>
-      </v-container>
-      <v-container class="page mx-auto">
-        <h1 class="d-flex flex-column text-center mt-12 mb-6">技术栈</h1>
-        <v-row>
-          <v-col
-            cols="12"
-            md="6"
-            v-for="item in TECHNOLOGY_LIST"
-            :key="item.title"
-          >
-            <v-card outlined>
-              <v-card-title>
-                <div>
-                  <v-img :src="item.image" :aspect-ratio="1" width="60"></v-img>
-                </div>
-                <span class="ml-5">
-                  {{ item.title }}
-                </span>
-              </v-card-title>
-              <v-card-text> {{ item.text }}</v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
+      <div ref="live">
+        <live></live>
+      </div>
+      <v-divider class="d-md-none" />
+      <div ref="technology">
+        <technology></technology>
+      </div>
+      <v-divider class="d-md-none" />
+      <div ref="apps">
+        <apps></apps>
+      </div>
+      <v-divider class="d-md-none" />
+      <div ref="message">
+        <message></message>
+      </div>
     </v-main>
   </zg-app>
 </template>
 
 <script>
-import { TECHNOLOGY_LIST, LIVE_LIST } from "./script/constant"
-import { VCarousel, VCarouselItem } from "vuetify/lib/components/VCarousel"
+import { HEADER_TAB_LIST } from "@/assets/script/constant"
 export default {
   components: {
     "zg-header": () => import("@/components/page/Header"),
-    "v-carousel": VCarousel,
-    "v-carousel-item": VCarouselItem
+    welcome: () => import("@/views/Welcome"),
+    live: () => import("@/views/Live"),
+    technology: () => import("@/views/Technology"),
+    apps: () => import("@/views/Apps"),
+    message: () => import("@/views/Message")
   },
   data() {
     return {
-      TECHNOLOGY_LIST,
-      LIVE_LIST
+      HEADER_TAB_LIST,
+      tab: 0
+    }
+  },
+  methods: {
+    changeTab(index) {
+      this.$vuetify.goTo(this.$refs[HEADER_TAB_LIST[index].value])
+    },
+    onScroll({ target }) {
+      const { documentElement } = target
+      const offsetTopList = HEADER_TAB_LIST.map(
+        (it) => this.$refs[it.value].offsetTop
+      )
+      let tabs = offsetTopList.filter((it) => it <= documentElement.scrollTop)
+      this.tab = tabs.length - 1
     }
   }
 }
