@@ -28,7 +28,7 @@
             </v-card-title>
             <v-card-text class="mx-auto pt-6" style="max-width: 250px">
               <component :is="item.component"></component
-              ></v-card-text>
+            ></v-card-text>
           </v-card>
         </div>
       </component>
@@ -37,23 +37,23 @@
 </template>
 
 <script>
-  import { APPS_LIST } from "./script/constant"
-  import { VCarousel, VCarouselItem } from "vuetify/lib/components/VCarousel"
-  import { VRow, VCol } from "vuetify/lib/components/VGrid"
+import { APPS_LIST } from "./script/constant"
+import { VCarousel, VCarouselItem } from "vuetify/lib/components/VCarousel"
+import { VRow, VCol } from "vuetify/lib/components/VGrid"
 
-  export default {
-    components: {
-      "v-carousel": VCarousel,
-      "v-carousel-item": VCarouselItem,
-      "v-row": VRow,
-      "v-col": VCol
-    },
-    data() {
-      return {
-        APPS_LIST
-      }
+export default {
+  components: {
+    "v-carousel": VCarousel,
+    "v-carousel-item": VCarouselItem,
+    "v-row": VRow,
+    "v-col": VCol
+  },
+  data() {
+    return {
+      APPS_LIST
     }
   }
+}
 </script>
 
 <style scoped></style>
