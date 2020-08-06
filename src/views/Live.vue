@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { LIVE_LIST } from "./script/constant"
+import { LIVE_LIST } from "@/assets/script/constant"
 import { VCarousel, VCarouselItem } from "vuetify/lib/components/VCarousel"
 import { VRow, VCol } from "vuetify/lib/components/VGrid"
 

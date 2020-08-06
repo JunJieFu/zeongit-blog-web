@@ -1,3 +1,10 @@
+export class LabelValue {
+  constructor(label, value) {
+    this.label = label
+    this.value = value
+  }
+}
+
 export class Technology {
   constructor(image, title, text) {
     this.image = image
@@ -14,9 +21,9 @@ export class Live {
   }
 }
 
-export class Tab {
-  constructor(label, value) {
-    this.label = label
-    this.value = value
+export class Footer {
+  constructor(title, linkList) {
+    this.title = title
+    this.linkList = linkList
   }
 }

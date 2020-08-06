@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { TECHNOLOGY_LIST } from "./script/constant"
+import { TECHNOLOGY_LIST } from "@/assets/script/constant"
 export default {
   data() {
     return { TECHNOLOGY_LIST }

@@ -14,7 +14,7 @@
       placeholder="留下你的足迹，畅所欲言！"
     ></v-textarea>
     <div class="text-center">
-      <v-btn outlined color="primary">留下足迹</v-btn>
+      <v-btn outlined color="primary" @click="send">留下足迹</v-btn>
     </div>
   </v-container>
 </template>
@@ -24,6 +24,14 @@ export default {
   data() {
     return {
       message: ""
+    }
+  },
+  methods: {
+    send() {
+      this.$alert({
+        title: "未完待续",
+        text: "暂时还没有完成后台服务器，未完待续..."
+      })
     }
   }
 }

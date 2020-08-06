@@ -1,15 +1,15 @@
 <template>
   <v-app-bar app clipped-left elevate-on-scroll>
-    <v-tooltip bottom :disabled="$isMobile">
-      <template v-slot:activator="{ on }">
-        <v-app-bar-nav-icon
-          :small="$vuetify.breakpoint.xsOnly"
-          @click="collapse = !collapse"
-          v-on="on"
-        />
-      </template>
-      <span>主菜单</span>
-    </v-tooltip>
+    <!--    <v-tooltip bottom :disabled="$isMobile">-->
+    <!--      <template v-slot:activator="{ on }">-->
+    <!--        <v-app-bar-nav-icon-->
+    <!--          :small="$vuetify.breakpoint.xsOnly"-->
+    <!--          @click="collapse = !collapse"-->
+    <!--          v-on="on"-->
+    <!--        />-->
+    <!--      </template>-->
+    <!--      <span>主菜单</span>-->
+    <!--    </v-tooltip>-->
     <router-link
       to="/"
       class="title ml-2 d-md-block d-none text-no-wrap"
