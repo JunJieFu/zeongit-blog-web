@@ -22,6 +22,7 @@
         <message></message>
       </div>
     </v-main>
+    <zg-footer></zg-footer>
   </zg-app>
 </template>
 
@@ -30,6 +31,7 @@ import { HEADER_TAB_LIST } from "@/assets/script/constant"
 export default {
   components: {
     "zg-header": () => import("@/components/page/Header"),
+    "zg-footer": () => import("@/components/page/Footer"),
     welcome: () => import("@/views/Welcome"),
     live: () => import("@/views/Live"),
     technology: () => import("@/views/Technology"),
