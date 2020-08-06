@@ -4,7 +4,7 @@
     <component
       :is="$vuetify.breakpoint.xsOnly ? 'v-carousel' : 'v-row'"
       hide-delimiter-background
-      light
+      :light="!$vuetify.theme.isDark"
       height="auto"
       :continuous="false"
       :show-arrows="false"
@@ -18,7 +18,7 @@
         md="4"
       >
         <div class="pb-12 pb-sm-0">
-          <v-card :elevation="0">
+          <v-card :elevation="0" color="transparent">
             <v-card-title class="justify-center">
               <div>
                 <v-img :src="item.image" :aspect-ratio="1" width="60"></v-img>
