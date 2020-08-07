@@ -45,8 +45,8 @@ export default {
         type === "json"
           ? body
           : qs.stringify(body, {
-              arrayFormat: "repeat"
-            })
+            arrayFormat: "repeat"
+          })
       )
       this._handleToken(response)
       result = response.data
@@ -65,7 +65,7 @@ export default {
       jsCookie.remove("token", {
         domain: DOMAIN
       })
-      location.reload()
+      window?.signInExceptionCallback()
     }
   }
 }
