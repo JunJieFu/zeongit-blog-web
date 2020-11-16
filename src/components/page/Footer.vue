@@ -49,26 +49,27 @@
           </v-card>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12" class="text-center">
-          <a
-            href="http://beian.miit.gov.cn/"
-            target="_blank"
-            rel="nofollow"
-            class="primary-hover"
-            >粤ICP备18144953号-1
-          </a>
-          <p>
-            © 2020-2021 FuJunjie. All Rights Reserved
-          </p>
-        </v-col>
-      </v-row>
+      <!--      <v-row>-->
+      <!--        <v-col cols="12" class="text-center">-->
+      <!--          <a-->
+      <!--            href="http://beian.miit.gov.cn/"-->
+      <!--            target="_blank"-->
+      <!--            rel="nofollow"-->
+      <!--            class="primary-hover"-->
+      <!--            >粤ICP备18144953号-1-->
+      <!--          </a>-->
+      <!--          <p>-->
+      <!--            © 2020-2021 FuJunjie. All Rights Reserved-->
+      <!--          </p>-->
+      <!--        </v-col>-->
+      <!--      </v-row>-->
     </div>
   </v-footer>
 </template>
 
 <script>
 import { FOOTER_LIST } from "@/assets/script/constant"
+
 export default {
   data() {
     return {
@@ -80,9 +81,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "src/plugins/zg/style/config";
+
 .page {
   max-width: $page-size;
 }
+
 a {
   color: currentColor;
 }

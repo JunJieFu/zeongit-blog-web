@@ -1,6 +1,8 @@
 const path = require("path")
 const resolve = (dir) => path.join(__dirname, dir)
 module.exports = {
+  publicPath: "./",
+  // assetsDir: "blog",
   chainWebpack: (config) => {
     config.plugin("html").tap((args) => {
       args[0].title = "Zeongit Blog"
